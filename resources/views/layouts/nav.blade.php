@@ -24,7 +24,13 @@
             <a href="#"><img src="{{ asset('icons/profile-user.gif') }}" alt=""></a>
             <ul class="user-dropdown">
                 <li><a href="#">حساب کاربری</a></li>
-                <li><a href="">خروج</a></li>
+                <li>
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit">خروج</button>
+                    </form>
+                </li>
+                {{-- <li><a href="">خروج</a></li> --}}
                 {{-- <?php if(isset($_SESSION['id'])) { ?>
                     <li><a href="#">حساب کاربری</a></li>
                     <li><a href="?logout=1">خروج</a></li>

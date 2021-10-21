@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('master')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +73,37 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+
+<div class="login-box">
+    <form method="post" action="{{route('register')}}">
+        @csrf
+        <h1>ثبت نام در رزومه سرا</h1>
+        {{-- <div class="error"><?php echo $error; ?></div> --}}
+        <div class="controls">
+            <input type="text" class="InputText" autocomplete="off" required name="name" value="{{ old('name') }}">
+            <label >نام کاربری</label>
+        </div>
+        <div class="controls">
+            <input type="email" class="InputText" autocomplete="off" required name="email" value="{{ old('email') }}">
+            <label >ایمیل</label>
+        </div>
+        <div class="controls">
+            <input type="password"  name="password" class="InputText" autocomplete="off" required >
+            <label >رمز عبور</label>
+        </div>
+        <div class="controls">
+            <input type="password"  name="password_confirmation" class="InputText" autocomplete="off" required>
+            <label >تکرار رمز عبور</label>
+        </div>
+        <div class="controls">
+            <input type="submit" value="ثبت نام" class="Registary-btn">
+        </div>
+        <div class="a-form">
+            <span>در سایت عضو هستم</span> <a href="#">ورود</a>
+        </div>
+    </form>
 </div>
+
 @endsection

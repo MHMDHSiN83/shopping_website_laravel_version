@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.styles([
     'resources/css/style.css',
+    'resources/css/auth.css',
 ], 'public/css/app.css');
 
 mix.scripts([

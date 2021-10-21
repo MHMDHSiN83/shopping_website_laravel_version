@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('master')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +69,46 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+
+<div class="login-box">
+    <form method="post" action="{{route('login')}}">
+        @csrf
+        <h1>ورود به رزومه سرا</h1>
+        {{-- <div class="error"><?php echo $error; ?></div> --}}
+        <div class="controls">
+            <input type="email" name="email" class="InputText @error('email') is-invalid @enderror" required value="{{old('email')}}">
+            <label >ایمیل</label>
+        </div>
+        <div class="controls">
+            <input type="password" name="password" class="InputText @error('email') is-invalid @enderror" required autocomplete="off">
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <label >رمز عبور</label>
+        </div>
+        <div class="controlscheck">
+            <input type="checkbox" name="remember">
+            <span class="lable-check">مرا به خاطر بسپار</span>
+        </div>
+        <div class="controls">
+            <input type="submit" value="ورود" class="Registary-btn" autocomplete="off">
+        </div>
+        <div class="a-form">
+            <span>هنوز ثبت نام نکرده‌اید؟</span><a href="registry.php">ثبت نام</a>
+            <br>
+            <a href="" class="bottom-a">رمز عبور خود را فراموش کرده‌اید؟</a>
+        </div>
+    </form>
 </div>
+
+
+
 @endsection
+
+
+
+

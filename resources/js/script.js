@@ -54,7 +54,7 @@ let prev_product = document.querySelector('.prev-product');
 let slide_product = document.querySelector('.slide-product');
 let product_article = document.getElementsByClassName('product-article');
 let m = 0;
-
+if(next_product) {
 next_product.addEventListener('click', function(e) {
     e.preventDefault();
     if(m >= 0) {
@@ -92,7 +92,7 @@ prev_product.addEventListener('click', function(e) {
     slide_product.style.transform = "translateX(" + 283*m + "px)";
 });
 
-
+}
 let about = document.getElementById('about');
 let details = document.getElementById('details');
 let comments = document.getElementById('comments');
