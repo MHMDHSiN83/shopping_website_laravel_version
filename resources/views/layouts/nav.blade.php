@@ -23,21 +23,21 @@
         <li class="li-icon">
             <a href="#"><img src="{{ asset('icons/profile-user.gif') }}" alt=""></a>
             <ul class="user-dropdown">
-                <li><a href="#">حساب کاربری</a></li>
-                <li>
-                    <form action="{{route('logout')}}" method="POST">
-                        @csrf
-                        <button type="submit">خروج</button>
-                    </form>
-                </li>
-                {{-- <li><a href="">خروج</a></li> --}}
-                {{-- <?php if(isset($_SESSION['id'])) { ?>
+                @auth
                     <li><a href="#">حساب کاربری</a></li>
-                    <li><a href="?logout=1">خروج</a></li>
-                <?php } else { ?>
-                    <li><a href="<?php echo PATH; ?>users/registry.php">ثبت نام</a></li>
-                    <li><a href="<?php echo PATH; ?>users/login.php">ورود</a></li>
-                <?php } ?> --}}
+                    @if (auth()->user()->role == 1)
+                        <li><a href="{{route('admin.index')}}">مدیریت</a></li>
+                    @endif
+                    <li>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit">خروج</button>
+                        </form>
+                    </li>
+                @else
+                    <li><a href="{{route('register')}}">ثبت نام</a></li>
+                    <li><a href="{{route('login')}}">ورود</a></li>
+                @endauth
             </ul>
         </li>
         <li class="li-icon"><a href="#"><img src="{{ asset('icons/shopping-cart.gif') }}" alt=""></a></li>

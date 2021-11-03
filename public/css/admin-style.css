@@ -1,0 +1,350 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+    text-align: center;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+@font-face {
+    font-family: 'Shabnam';
+    src: url('../Fonts/Shabnam.ttf');
+}
+
+* {
+    direction: rtl;
+    font-family: 'Shabnam';
+}
+body {
+    font-size: 16px;
+}
+
+h2 {
+    margin-top: 1.25em;
+}
+hr {
+    width: 30%;
+    margin: 1em auto;
+}
+
+.login-admin input {
+    width: 20%;
+    margin: .625rem 0;
+    padding: .375rem .625rem;
+    font-size: 1.125em;
+    border: .125rem solid #9C9C9C;
+    outline: 0;
+    border-radius: .3125rem;
+}
+.login-admin input:focus {
+    border: .125rem solid #686868;
+}
+.login-admin input[type=submit] {
+    margin: .625em 0;
+    width: 15%;
+    background-color: #1B814D;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: .3125em;
+    padding: .4375em 0;
+    font-size: 1em;
+}
+.login-admin input[type=submit]:hover {
+    background-color: #1D6540;
+}
+
+h1.title {
+    text-align: center;
+    border-bottom: .125em dashed #ccc;
+    margin: 0 0 1.5625em 0;
+    padding-bottom: 1.25em;
+}
+
+#main {
+    width: 85%;
+    margin: .625em auto;
+    direction: rtl;
+}
+
+.content {
+    background-color: #eaeaea;
+    padding: .3125em;
+    box-sizing: border-box;
+    width: 82%;
+    float: left;
+    border-radius: .1875em;
+}
+.sidebar {
+    background-color: #eaeaea;
+    width: 17%;
+    float: right;
+    box-sizing: border-box;
+    border-radius: .3125em;
+}
+
+.sidebar ul li {
+    list-style: none;
+    text-align: center;
+    font-size: .9375em;
+    font-weight: bold;
+    padding: 1.0666em 0;
+}
+
+.sidebar ul li:hover {
+    background-color: #8B8B8B;
+}
+
+.sidebar ul li:hover:first-child {
+    border-radius: .2em .2em 0px 0px;
+}
+
+.sidebar ul li:hover:last-child {
+    border-radius: 0px 0px .2em .2em;
+}
+
+.sidebar ul li:hover a {
+    color: #fff;
+}
+a {
+    color: #616161;
+    text-decoration: none;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td, .table th {
+  border: .0625rem solid #ddd;
+  padding: .5em;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table td {
+    padding: 1em 0;
+    font-size: .9375em;
+}
+
+.table th {
+  padding-top: .7058em;
+  padding-bottom: .7058em;
+  font-size: 1.0625em;
+  background-color: #595959;
+  color: white;
+}
+
+.table a {
+    text-decoration: none;
+}
+
+.error {
+    width: 35%;
+    padding: .9375em 0;
+    background-color: #C51414;
+    color: white;
+    margin: .3125em auto .625em auto;
+    border-radius: 1.25em;
+
+}
+.message {
+    width: 35%;
+    padding: .9375em 0;
+    background-color: #2B7E5A;
+    color: white;
+    margin: .3125em auto .625em auto;
+    border-radius: 1.25em;
+}
+
+.add-cat input[type=text] {
+    width: 35%;
+    margin: .625rem 0 .3125rem 0;
+    outline: 0;
+    border-radius: .3125rem;
+    padding: .375rem .625rem;
+    font-size: 1.0625em;
+    border: .125rem solid #9C9C9C;
+}
+.add-cat input[type=submit] {
+    width: 30%;
+    margin: .3125em 0 .625em 0;
+    background-color: #1B814D;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: .3125em;
+    padding: .4375em 0;
+    font-size: 1em;
+
+}
+.add-cat input[type=submit]:hover {
+    background-color: #1D6540;
+}
+
+.add-product input[type=submit] {
+    width: 30%;
+    margin: .3125em 0 .625em 0;
+    background-color: #1B814D;
+    color: white;
+    cursor: pointer;
+    border: 0;
+    border-radius: .3125em;
+    padding: .4375em 0;
+    font-size: 1em;
+    box-shadow: .125em .125em 25em #757575;
+}
+.add-product input[type=submit]:hover {
+    background-color: #1D6540;
+}
+.add-product textarea {
+    resize: none;
+    width: 90%;
+    margin: .625rem 0 .3125rem 0;
+    outline: 0;
+    border-radius: .3125rem;
+    padding: .375rem .625rem;
+    font-size: .8125em;
+    border: .125rem solid #9C9C9C;
+    height: 6.25rem;
+}
+.add-product textarea:focus, .add-product input[type=text]:focus {
+    border: .125rem solid #787878;
+}
+
+
+.add-product input[type=text] {
+    resize: none;
+    margin: .625rem 0 .3125rem 0;
+    outline: 0;
+    border-radius: .3125rem;
+    padding: .375rem .625rem;
+    font-size: .8125em;
+    border: .125rem solid #9C9C9C;
+}
+
+.add-product select {
+    margin: .625rem 0 .3125rem 0;
+    outline: 0;
+    border-radius: .3125rem;
+    padding: .375rem 15px;
+    font-size: .8125em;
+    border: .125rem solid #9C9C9C;
+    width: 70%;
+}
+.add-product input[type=number] {
+    margin: .625rem 0 .3125rem 0;
+    outline: 0;
+    border-radius: .3125rem;
+    padding: .375rem .625rem .375rem 3px;
+    font-size: .8125em;
+    border: .125rem solid #9C9C9C;
+}
+.add-product span {
+    font-size: .875em;
+    margin-right: 6.25em;
+}
+.add-product input {
+    width: 70%;
+}
+.add-product input[type=file] {
+    margin: .625rem 0;
+    width: 30%;
+}
+.alert {
+    width: 40%;
+    margin: auto;
+    padding: .5rem .5rem;
+}
