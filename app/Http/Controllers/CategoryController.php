@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(3);
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -49,7 +49,7 @@ class CategoryController extends Controller
             $category->create($request->all());
         } catch (Exception $exception) {
             $result = 'مشکلی پیش آمده. بعدا امتحان کنید.';
-            return redirect(route('categories.index'))-with('warning', $result);
+            return redirect(route('categories.index'))->with('warning', $result);
         }
         $result = 'دسته بندی مورد نظر با موفقیت اضافه شد.';
         return redirect(route('categories.index'))->with('success', $result);

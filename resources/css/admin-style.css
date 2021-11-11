@@ -94,8 +94,8 @@ input, select {
 @font-face {
     font-family: 'Shabnam';
     src: url('../Fonts/Shabnam.ttf');
-}
 
+}
 * {
     direction: rtl;
     font-family: 'Shabnam';
@@ -334,17 +334,35 @@ a {
 }
 .add-product span {
     font-size: .875em;
-    margin-right: 6.25em;
+    /* margin-right: 6.25em;; */
 }
 .add-product input {
     width: 70%;
 }
-.add-product input[type=file] {
-    margin: .625rem 0;
+.add-product input[type=file]{
     width: 30%;
+    margin: .625rem 0;
+
+}
+.add-product select {
+    width: 20%;;
+    margin: .625rem 0;
 }
 .alert {
     width: 40%;
     margin: auto;
     padding: .5rem .5rem;
+}
+.paginate  {
+    display: flex;
+    justify-content: center;
+}
+.center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-center:nth-child(1) {
+    padding: 0 1rem;
 }

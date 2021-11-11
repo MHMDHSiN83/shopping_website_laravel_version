@@ -192,6 +192,18 @@ nav .left-ul .li-icon .user-dropdown li {
     padding: .75em 1.875em;
     cursor: pointer;
 }
+nav .left-ul .li-icon .user-dropdown form {
+    position: static;
+}
+
+nav .left-ul .li-icon .user-dropdown button {
+    cursor: pointer;
+    font-weight: bold;
+    color: #F8F7F7;
+    font-size: .875em;
+    border: 0;
+    background-color: unset;
+}
 nav .left-ul .li-icon .user-dropdown li:hover a {
     font-weight: bold;
 }

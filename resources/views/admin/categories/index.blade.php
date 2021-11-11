@@ -17,7 +17,7 @@
         <tr>
             <th>شناسه</th>
             <th>نام دسته بندی</th>
-            <th>حذف دسته بندی</th>
+            <th>مدیریت دسته بندی</th>
         </tr>
         @foreach ($categories as $category)
             <tr>
@@ -27,12 +27,15 @@
                     <form action="{{route('categories.destroy', $category->id)}}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <button type="submit"  class="badge bg-danger border-0">حذف</button>
+                        <button type="submit"  class="badge bg-danger border-0"  onclick="return confirm('آیا مطمئنید؟')">حذف</button>
                     </form>
                 </td>
             </tr>
         @endforeach
     </table>
+    <div class="paginate">
+        {{ $categories->links("pagination::bootstrap-4") }}
+    </div>
 @else
 هیچ دسته بندی وجود ندارد
 @endif
