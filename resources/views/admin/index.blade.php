@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>پنل مدیریت</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{ asset('css/admin-style.css') }}">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <div id="main">
@@ -27,11 +29,14 @@
 </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.tiny.cloud/1/rsom1y1g6y1j9hw1ev0yeixaj4dv7ldqcwy193f679fxvaas/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 <script>
 
 var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-tinymce.init({
+var editor_config = {
+path_absolute : "/",
+        relative_urls: false,
   selector: 'textarea#editor',
   plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
   imagetools_cors_hosts: ['picsum.photos'],
@@ -89,10 +94,34 @@ tinymce.init({
   skin: useDarkMode ? 'oxide-dark' : 'oxide',
   content_css: useDarkMode ? 'dark' : 'default',
   font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats; Shabnam = shabnam",
-  content_style: 'body { font-family:Shabnam; font-size:14px }'
- });
+  content_style: 'body { font-family:Shabnam; font-size:14px }',
+ file_picker_callback : function(callback, value, meta) {
+          var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+          var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
+          var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+          if (meta.filetype == 'image') {
+            cmsURL = cmsURL + "&type=Images";
+          } else {
+            cmsURL = cmsURL + "&type=Files";
+          }
 
+          tinyMCE.activeEditor.windowManager.openUrl({
+            url : cmsURL,
+            title : 'Filemanager',
+            width : x * 0.8,
+            height : y * 0.8,
+            resizable : "yes",
+            close_previous : "no",
+            onMessage: (api, message) => {
+              callback(message.content);
+            }
+          });
+        }
+
+    };
+
+    tinymce.init(editor_config);
 
 </script>
-    </html>
+</html>
