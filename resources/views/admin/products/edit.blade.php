@@ -17,8 +17,8 @@
         @endforeach
     </select><br>
     <br>
-    <span>انتخاب عکس:</span>
-    {{-- <input type="file" name="image"> --}}
+    {{-- <span>انتخاب عکس:</span>
+    <input type="file" name="image"> --}}
     <br>
     <input type="number" name="warranty" placeholder="مدت گارانتی (ماه)"  value="{{$product->warranty}}">
     <br>
