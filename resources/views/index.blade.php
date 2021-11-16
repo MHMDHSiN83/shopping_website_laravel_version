@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    
+
     <div class="hero-section" id="hero-section">
         <div class="welcome-box">
             <div class="container">

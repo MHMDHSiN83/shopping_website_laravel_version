@@ -16,9 +16,7 @@ class Product extends Model
         'description',
         'status',
         'category_id',
-    ];
-    protected $attributes = [
-        'image' => 2,
+        'image',
     ];
     public function category()
     {

@@ -17,8 +17,15 @@
         @endforeach
     </select><br>
     <br>
-    {{-- <span>انتخاب عکس:</span>
-    <input type="file" name="image"> --}}
+    <div class="input-group">
+        <span class="input-group-btn">
+          <a id="lfm" data-input="image" data-preview="holder" class="btn btn-primary">
+            <i class="fa fa-picture-o"></i> انتخاب
+          </a>
+        </span>
+        <input id="image" class="form-control" type="text" name="image" value="{{$product->image}}">
+      </div>
+      <img id="holder" style="margin-top:15px;max-height:100px;" src="{{$product->image}}">
     <br>
     <input type="number" name="warranty" placeholder="مدت گارانتی (ماه)"  value="{{$product->warranty}}">
     <br>
