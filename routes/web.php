@@ -19,8 +19,11 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 Route::get('/product', function () {
-    return view('uesr/product');
+    return view('uesr.product');
 });
+
+Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
+Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/', function () {

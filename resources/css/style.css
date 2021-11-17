@@ -774,7 +774,7 @@ nav .right-ul .dropdown:hover .cat-dropdown {
     box-shadow: .1875em .1875em .3125em rgba(0, 0, 0, .4);
 }
 .product-info .product-content #about {
-    display: flex;
+    
 }
 .product-info .product-content #details {
     display: none;

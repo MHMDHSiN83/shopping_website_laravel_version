@@ -10,10 +10,10 @@
 				<a href="#" class="prev">&#10094</a>
 				<div class="slide">
 					<div class="images">
-						<img src="images/slideshow1.png" alt="" class="slide-image">
-						<img src="images/slideshow2.png" alt="" class="slide-image">
-						<img src="images/slideshow3.png" alt="" class="slide-image">
-						<img src="images/slideshow2.png" alt="" class="slide-image">
+						<img src="{{ asset('images/slideshow1.png') }}" alt="" class="slide-image">
+						<img src="{{ asset('images/slideshow2.png') }}" alt="" class="slide-image">
+						<img src="{{ asset('images/slideshow3.png') }}" alt="" class="slide-image">
+						<img src="{{ asset('images/slideshow2.png') }}" alt="" class="slide-image">
 					</div>
 				</div>
 				<a href="#" class="next">&#10095</a>
@@ -32,33 +32,33 @@
                 <li class="header">
                     <h5><b>مشخصات محصول</b></h5>
                         <figure class="star">
-                            <a href="" id="favorite"><img src="icons/heart-red.gif" alt="" id="heart"></a>
+                            <a href="" id="favorite"><img src="{{ asset('icons/heart-red.gif') }}" alt="" id="heart"></a>
                         </figure>
                 </li>
                 <li class="mix">
                     <h6><b>نام محصول:</b></h6>
-                    <span class="normal">لپ تاپ گیمینگ c201 ایسوس</span>
+                    <span class="normal">{{$product->name}}</span>
                 </li>
                 <li class="mix">
                     <h6><b>رنگ محصول:</b></h6>
                     <figure class="colors">
-                        <img src="icons/red.gif" alt="">
-                        <img src="icons/blue.gif" alt="">
-                        <img src="icons/black.gif" alt="">
-                        <img src="icons/white.gif" alt="">
-                        <img src="icons/green.gif" alt="">
+                        <img src="{{ asset('icons/red.gif') }}" alt="">
+                        <img src="{{ asset('icons/blue.gif') }}" alt="">
+                        <img src="{{ asset('icons/black.gif') }}" alt="">
+                        <img src="{{ asset('icons/white.gif') }}" alt="">
+                        <img src="{{ asset('icons/green.gif') }}" alt="">
                     </figure>
                 </li>
                 <li class="mix">
                     <h6><b>وزن محصول:</b></h6>
-                    <span class="number">1800 گرم</span>
+                    <span class="number">{{$product->weight}} گرم</span>
                 </li>
                 <li class="mix">
                     <h6><b>قیمت محصول</b></h6>
-                    <span class="number">20,300,000 تومان</span>
+                    <span class="number">{{$product->price}} تومان</span>
                 </li>
                 <li class="text">
-                    <p class="warranty">این محصول تا 6 ماه پس از خرید گارانتی دارد</p>
+                    <p class="warranty">این محصول تا {{$product->warranty}} ماه پس از خرید گارانتی دارد</p>
                 </li>
                 <li class="text">
                     <a href="#observ" class="observ">مشاهده جزئیات کامل این مصحول</a>
@@ -67,15 +67,15 @@
             <hr>
             <span class="score">شما به این محصول چه امتیازی می‌دهید؟!</span>
             <figure class="star-o">
-                <img src="icons/star-o.gif" alt="">
-                <img src="icons/star-o.gif" alt="">
-                <img src="icons/star-o.gif" alt="">
-                <img src="icons/star-o.gif" alt="">
-                <img src="icons/star-o.gif" alt="">
+                <img src="{{ asset('icons/star-o.gif') }}" alt="">
+                <img src="{{ asset('icons/star-o.gif') }}" alt="">
+                <img src="{{ asset('icons/star-o.gif') }}" alt="">
+                <img src="{{ asset('icons/star-o.gif') }}" alt="">
+                <img src="{{ asset('icons/star-o.gif') }}" alt="">
             </figure>
 		</div>
     </div>
-    <button class="add"><div class="add-content"><span>افزودن به سبد خرید</span><img src="icons/plus.gif" alt=""></div></button>
+    <button class="add"><div class="add-content"><span>افزودن به سبد خرید</span><img src="{{ asset('icons/plus.gif') }}" alt=""></div></button>
 </div>
 
 }
@@ -87,7 +87,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -101,13 +101,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -115,7 +115,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -129,13 +129,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -143,7 +143,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -157,13 +157,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -171,7 +171,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -185,13 +185,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -199,7 +199,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -213,13 +213,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -227,7 +227,7 @@
                 <article class="product-article">
                     <a href="product.html">
                         <figure>
-                            <img src="images/sample2.jpg" alt="">
+                            <img src="{{ asset('images/sample2.jpg') }}" alt="">
                         </figure>
                         <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
                         <div class="preview">
@@ -241,41 +241,13 @@
                                 <span class="price-offer">14,280,000</span>
                             </div>
                             <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
+                            <img src="{{ asset('icons/money.svg') }}" alt="">
 
                         </div>
                     </a>
                     <a href="#">
                         <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
-                            <span>افزودن سبد خرید</span>
-                        </div>
-                    </a>
-                </article>
-                <article class="product-article">
-                    <a href="product.html">
-                        <figure>
-                            <img src="images/sample2.jpg" alt="">
-                        </figure>
-                        <figcaption>لپ تاپ لنوو مدل گیمینگ تری</figcaption>
-                        <div class="preview">
-                            لورم ایپسوم متن ساختگی با تولید
-سادگی نامفهوم از صنعت چاپ
-
-                        </div>
-                        <div class="product-price">
-                            <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
-                            </div>
-                            <span class="toman">تومان</span>
-                            <img src="icons/money.svg" alt="">
-
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="product-button">
-                            <img src="icons/shopping-cart-blue.gif">
+                            <img src="{{ asset('icons/shopping-cart-blue.gif') }}">
                             <span>افزودن سبد خرید</span>
                         </div>
                     </a>
@@ -293,7 +265,7 @@
     </div>
     <div class="product-content">
         <div id="about" class="product-content-item">
-            about
+            {!!$product->description!!}
         </div>
         <div id="details" class="product-content-item">
             details
@@ -341,17 +313,17 @@
                             <div class="bottom-section">
                                 <div class="right">
                                     <a href="">
-                                        <img src="icons/reply.gif" alt="" class="reply">
+                                        <img src="{{ asset('icons/reply.gif') }}" alt="" class="reply">
                                         <span>پاسخ</span>
                                     </a>
                                 </div>
                                 <div class="left">
                                     <a href="" class="right-link">
-                                        <img src="icons/dis-like.gif" alt="" class="dis-like">
+                                        <img src="{{ asset('icons/dis-like.gif') }}" alt="" class="dis-like">
                                         <span>۶</span>
                                     </a>
                                     <a href="" class="left-link">
-                                        <img src="icons/like.gif" alt="" class="like">
+                                        <img src="{{ asset('icons/like.gif') }}" alt="" class="like">
                                         <span>۱۴</span>
                                     </a>
                                 </div>

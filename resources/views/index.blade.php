@@ -222,7 +222,7 @@
     <br>
     <br>
     <br>
-    <a href="search-products.php">محصولات بیشتر</a>
+    <a href="{{route('user.products.index')}}">محصولات بیشتر</a>
     <br>
     <br>
     <br>
