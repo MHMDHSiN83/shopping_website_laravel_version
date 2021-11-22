@@ -272,35 +272,37 @@
         </div>
         <div id="comments" class="product-content-item">
             <div class="comments-box">
-                {{-- <?php if(count($comments)) { ?>
-                    <span class="number-of-comments">برای  این محصول <?php echo count($comments); ?> دیدگاه  ثبت شده است</span>
-                <?php } else { ?>
+                @if ($number_of_comments != 0)
+                    <span class="number-of-comments">برای  این محصول {{$number_of_comments}} دیدگاه  ثبت شده است</span>
+                @else
                     <span class="number-of-comments">تا به حال نظری برای این محصول ثبت نشده است</span>
-                <?php } ?> --}}
+                @endif
                 <div id="add-comment">
-                    {{-- <?php if(isset($_SESSION['id'])) { ?> --}}
+                    @auth
                         <div id="none">
                             <span class="add-comment">برای نظر دادن به این  محصول کلیک کنید</span>
                             <a href="" class="add-comment" id="add-comment-a">ثبت نظر</a>
                         </div>
-                        <form method="post" id="add-comment-form" action="">
-                            <textarea name="comment-text"></textarea>
+                        <form method="post" id="add-comment-form" action="{{route('comments.store')}}">
+                            @csrf
+                            <textarea name="description"></textarea>
                             <br>
-                            <input type="submit" value="افزودن نظر" name="add-comment">
+                            <input type="submit" value="افزودن نظر">
                         </form>
-                    {{-- <?php } else { ?> --}}
+                    @else
                        <div id="none">
                             <span class="add-comment">برای نظر دادن ابتدا وارد سایت شوید</span>
                         </div>
-                    {{-- <?php } ?> --}}
+                    @endauth
                 </div>
 
                 <section class="comments">
+                    @foreach ($comments as $comment)
                         <article class="comment">
                             <div class="top-section">
                                 <div class="right">
                                     <span class="profile-image"></span>
-                                    <span class="username">محمدحسین شفیعی</span>
+                                    <span class="username">{{$comment->user->name}}</span>
                                 </div>
                                 <div class="left">
                                     <span class="date">ارسال شده در 1399/12/23</span>
@@ -308,7 +310,7 @@
                             </div>
                             <hr>
                             <div class="middle-section">
-                                <p>این محصول عالی است و مناسب گیم است به شدت پیشنهاد میشود.</p>
+                                <p>{{$comment->description}}</p>
                             </div>
                             <div class="bottom-section">
                                 <div class="right">
@@ -329,6 +331,9 @@
                                 </div>
                             </div>
                         </article>
+                    @endforeach
+            {{ $comments->fragment('about')->links("pagination::bootstrap-4") }}
+
                 </section>
             </div>
         </div>

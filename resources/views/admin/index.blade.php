@@ -17,7 +17,7 @@
             <li><a href="{{route('products.create')}}">افزودن محصول</a></li>
             <li><a href="{{route('users.index')}}">لیست کاربران</a></li>
             <li><a href="{{route('categories.index')}}">دسته‌بندی‌ها</a></li>
-            <li><a href="comments.php">نظرات</a></li>
+            <li><a href="{{route('comments.index')}}">نظرات</a></li>
             <li><a href="orders.php">سفارشات</a></li>
             <li><a href="">خروج</a></li>
         </ul>

@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-use App\Models\user\Product;
 use App\Models\admin\Comment;
 use Exception;
+use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('user.products', compact('products'));
+        $comments = Comment::orderBy('id', 'DESC')->paginate(10);
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**
@@ -49,11 +47,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        $comments = Comment::orderBy('id', 'DESC')->where('status', 1)->paginate(20);
-        $number_of_comments = $comments->count();
-        return view('user.product', compact('product', 'comments', 'number_of_comments'));
+        //
     }
 
     /**
@@ -85,8 +81,31 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        if($comment->delete()) {
+            $result = 'نظر مورد نظر با موفقیت حذف شد.';
+            return redirect(route('comments.index'))->with('success', $result);
+        } else {
+            $result = 'مشکلی پیش آمده. بعدا امتحان کنید';
+            return redirect(route('comments.index'))->with('warning', $result);
+        }
+    }
+    public function changeStatus(Comment $comment)
+    {
+        if($comment->status) {
+            $comment->status = 0;
+        } else {
+            $comment->status = 1;
+        }
+        try {
+            $comment->save();
+        } catch (Exception $exception) {
+            $result = 'مشکلی پیش آمده';
+            return redirect(route('comments.index'))->with('warning', $result);
+        }
+        $result = 'وضعیت محصول موردنظر با موفقیت تغییر کرد';
+        return redirect(route('comments.index'))->with('success', $result);
+
     }
 }

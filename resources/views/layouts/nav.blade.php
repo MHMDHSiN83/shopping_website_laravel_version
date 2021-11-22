@@ -1,4 +1,4 @@
-<nav class="sticky-top">
+<nav class="sticky-top main-nav">
     <ul class="right-ul">
         <li><img src="{{ asset('icons/home.gif') }}" alt=""><a href=""><b></b>خانه</b></a></li>
         <li class="dropdown">
