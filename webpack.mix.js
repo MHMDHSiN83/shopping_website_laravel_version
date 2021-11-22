@@ -22,3 +22,6 @@ mix.styles([
 mix.scripts([
     'resources/js/script.js',
 ], 'public/js/app.js');
+mix.scripts([
+    'resources/js/admin-script.js',
+], 'public/js/admin-script.js');
