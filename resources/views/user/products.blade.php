@@ -153,14 +153,10 @@ input, select {
 <body>
     <section class="product">
         @foreach ($products as $product)
-        @php
-            $image_name = explode('/', $product->image);
-            $image_path = 'storage/photos/1/thumbs/' . $image_name[count($image_name)-1];
-        @endphp
             <article class="product-article">
                 <a href="{{route('user.product.show', $product->id)}}">
                     <figure>
-                        <img src="{{ asset($image_path) }}" alt="">
+                        <img src="{{ asset($product->image_path) }}" alt="">
                     </figure>
                     <figcaption>{{$product->name}}</figcaption>
                     <footer class="product-footer">

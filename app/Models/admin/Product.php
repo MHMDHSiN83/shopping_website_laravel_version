@@ -22,4 +22,13 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    function set_image_path() {
+        $image_name = explode('/', $this->image);
+        $this->image_path = "";
+        foreach ($image_name as $key => $value) {
+            if($key >= 3){
+                $this->image_path = $this->image_path.'/'.$value;
+            }
+        }
+    }
 }

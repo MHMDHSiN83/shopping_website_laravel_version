@@ -92,6 +92,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $product->set_image_path();
         $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
     }

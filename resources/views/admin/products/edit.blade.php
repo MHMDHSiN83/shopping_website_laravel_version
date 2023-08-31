@@ -25,7 +25,7 @@
         </span>
         <input id="image" class="form-control" type="text" name="image" value="{{$product->image}}">
       </div>
-      <img id="holder" style="margin-top:15px;max-height:100px;" src="{{$product->image}}">
+      <img id="holder" style="margin-top:15px;max-height:100px;" src="{{asset($product->image_path)}}">
     <br>
     <input type="number" name="warranty" placeholder="مدت گارانتی (ماه)"  value="{{$product->warranty}}">
     <br>

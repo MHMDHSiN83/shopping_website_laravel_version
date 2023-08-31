@@ -19,6 +19,9 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        foreach ($products as $product) {
+            $product->set_image_path();
+        }
         return view('user.products', compact('products'));
     }
 
