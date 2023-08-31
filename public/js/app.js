@@ -117,8 +117,8 @@ function unify()
 
 
 let actual_width = document.body.scrollWidth;
-let ratio = 0.563;
-let hero_section_height = actual_width * ratio;
+let percent = 0.42;
+let hero_section_height = actual_width * percent;
 let hero_section = document.getElementById('hero-section');
 if(hero_section) {
     hero_section.style.height = hero_section_height + 'px';

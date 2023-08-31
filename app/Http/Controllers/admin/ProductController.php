@@ -59,7 +59,7 @@ class ProductController extends Controller
             'warranty' => 'required',
             'weight' => 'required',
             'description' => 'required',
-            // 'image' => 'required',
+            'image' => 'required',
             'category_id' => 'required',
         ], $messages);
         $product = new Product();

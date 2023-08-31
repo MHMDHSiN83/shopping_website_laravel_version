@@ -283,7 +283,7 @@
                             <span class="add-comment">برای نظر دادن به این  محصول کلیک کنید</span>
                             <a href="" class="add-comment" id="add-comment-a">ثبت نظر</a>
                         </div>
-                        <form method="post" id="add-comment-form" action="{{route('comments.store')}}">
+                        <form method="POST" id="add-comment-form" action="{{route('user.comments.store')}}">
                             @csrf
                             <textarea name="description"></textarea>
                             <br>

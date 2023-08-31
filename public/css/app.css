@@ -386,7 +386,7 @@ body {
 .hero-section {
     background-image: url(../../images/hero-background.png);
     background-size: cover;
-    /*height: 711px;*/
+    background-position: center;
     box-shadow: 0.2142em .2857em .4285em rgba(57, 55, 55, .35);
     display: flex;
     align-items: center;

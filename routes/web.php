@@ -24,7 +24,7 @@ Route::get('/product', function () {
 
 Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
 Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
-Route::post('comments/', [App\Http\Controllers\user\CommentController::class, 'store'])->name('comments.store');
+Route::post('comments/', [App\Http\Controllers\user\CommentController::class, 'store'])->name('user.comments.store');
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/', function () {

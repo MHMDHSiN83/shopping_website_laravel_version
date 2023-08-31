@@ -12,7 +12,7 @@ class Comment extends Model
         'description'
     ];
     protected $attributes = [
-        'product_id' => 15,
+        'product_id' => 1,
         'user_id' => 1,
         'status' => 0,
     ];
