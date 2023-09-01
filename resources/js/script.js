@@ -1,3 +1,4 @@
+const URL = "http://localhost:8000/";
 function scrollFunction() {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
           document.getElementsByTagName("nav")[0].style.boxShadow = "0 3px 6px rgba(0, 0, 0, 0.712)";
@@ -129,21 +130,21 @@ let heart = document.getElementById('heart');
 if(favorite) {
 favorite.addEventListener('click', function(e) {
     e.preventDefault();
-    if(is_login == true) {
-        if(heart.src == 'http://localhost/shopping_website/icons/heart-red.gif') {
-            heart.src = 'icons/heart-black.svg';
-            $.ajax({
-                method: "POST",
-                url: "actions.php",
-                data: { favorite: 'false' }
-            })
+    if(true) { //check login
+        if(heart.src == URL + 'icons/heart-red.gif') {
+            heart.src = URL + 'icons/heart-black.svg';
+            // $.ajax({
+            //     method: "POST",
+            //     url: "actions.php",
+            //     data: { favorite: 'false' }
+            // })
         } else {
-            heart.src = 'icons/heart-red.gif';
-            $.ajax({
-                method: "POST",
-                url: "actions.php",
-                data: { favorite: 'true' }
-            })
+            heart.src = URL + 'icons/heart-red.gif';
+            // $.ajax({
+            //     method: "POST",
+            //     url: "actions.php",
+            //     data: { favorite: 'true' }
+            // })
         }
     } else {
         alert('ابتدا لاگین کنید');
