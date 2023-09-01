@@ -102,7 +102,7 @@ function show(this_element, element_id)
     unify();
     this_element.style.backgroundColor = '#F8F7F7';
     let product_content = document.getElementById(element_id);
-    product_content.style.display = 'flex';
+    product_content.style.display = 'block';
 }
 function unify()
 {

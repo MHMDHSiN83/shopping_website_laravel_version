@@ -784,7 +784,8 @@ body {
 }
 .product-info .product-content #comments .comments-box {
     width: 94%;
-    margin: 1.875em auto 0 auto;
+    padding-top: 1.875em;
+    margin: 0 auto 0 auto;
 }
 .product-info .product-content #comments .number-of-comments {
     color: #555555;
