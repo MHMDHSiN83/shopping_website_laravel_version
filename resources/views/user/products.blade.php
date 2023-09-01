@@ -156,7 +156,7 @@ input, select {
             <article class="product-article">
                 <a href="{{route('user.product.show', $product->id)}}">
                     <figure>
-                        <img src="{{ asset($product->image_path) }}" alt="">
+                        <img src="{{$product->image_path}}" alt="">
                     </figure>
                     <figcaption>{{$product->name}}</figcaption>
                     <footer class="product-footer">

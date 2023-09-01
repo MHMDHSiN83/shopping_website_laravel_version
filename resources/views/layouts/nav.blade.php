@@ -26,7 +26,7 @@
                 @auth
                     <li><a href="#">حساب کاربری</a></li>
                     @if (auth()->user()->role == 1)
-                        <li><a href="{{route('admin.index')}}">مدیریت</a></li>
+                        <li><a href="{{route('admin.index')}}" target="_blank">مدیریت</a></li>
                     @endif
                     <li>
                         <form action="{{route('logout')}}" method="POST">
