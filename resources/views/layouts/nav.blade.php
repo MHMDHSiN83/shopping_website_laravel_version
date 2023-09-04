@@ -24,7 +24,7 @@
             <a href="#"><img src="{{ asset('icons/profile-user.gif') }}" alt=""></a>
             <ul class="user-dropdown">
                 @auth
-                    <li><a href="#">حساب کاربری</a></li>
+                    <li><a href="#" id="is-log">حساب کاربری</a></li>
                     @if (auth()->user()->role == 1)
                         <li><a href="{{route('admin.index')}}" target="_blank">مدیریت</a></li>
                     @endif

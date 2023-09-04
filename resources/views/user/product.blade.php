@@ -32,7 +32,11 @@
                 <li class="header">
                     <h5><b>مشخصات محصول</b></h5>
                         <figure class="star">
-                            <a href="" id="favorite"><img src="{{ asset('icons/heart-red.gif') }}" alt="" id="heart"></a>
+                            @if ($favorites)
+                            <a href="" id="favorite"><img src="{{ asset('icons/heart-red.gif') }}" alt="" id="heart"></a>                               
+                            @else
+                                <a href="" id="favorite"><img src="{{ asset('icons/heart-black.svg') }}" alt="" id="heart"></a>                             
+                            @endif
                         </figure>
                 </li>
                 <li class="mix">
@@ -78,7 +82,6 @@
     <button class="add"><div class="add-content"><span>افزودن به سبد خرید</span><img src="{{ asset('icons/plus.gif') }}" alt=""></div></button>
 </div>
 
-}
 <section class="product-slider">
     <div class="visibility-product">
         <a href="#" class="prev-product">&#10094</a>

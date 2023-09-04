@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/setfavorite', [App\Http\Controllers\user\FavoriteController::class, 'setFavorite'])->name('setfavorite');
+Route::post('/deletefavorite', [App\Http\Controllers\user\FavoriteController::class, 'deleteFavorite'])->name('deletefavorite');
 
 Route::get('/', function () {
     return view('index');

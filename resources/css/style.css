@@ -927,3 +927,9 @@ body {
 .product-info .product-content #comments .comment .bottom-section .like, .product-info .product-content #comments .comment .bottom-section .dis-like {
     width: 1.25em;
 }
+.swal-footer {
+    text-align: center;
+  }
+.swal-button {
+    background-color: #4962B3;
+}

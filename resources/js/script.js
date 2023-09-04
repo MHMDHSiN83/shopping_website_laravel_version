@@ -1,4 +1,5 @@
 const URL = "http://localhost:8000/";
+
 function scrollFunction() {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
           document.getElementsByTagName("nav")[0].style.boxShadow = "0 3px 6px rgba(0, 0, 0, 0.712)";
@@ -127,37 +128,62 @@ if(hero_section) {
 
 let favorite = document.getElementById('favorite');
 let heart = document.getElementById('heart');
+let is_log = document.getElementById('is-log');
 if(favorite) {
-favorite.addEventListener('click', function(e) {
-    e.preventDefault();
-    if(true) { //check login
-        if(heart.src == URL + 'icons/heart-red.gif') {
-            heart.src = URL + 'icons/heart-black.svg';
-            // $.ajax({
-            //     method: "POST",
-            //     url: "actions.php",
-            //     data: { favorite: 'false' }
-            // })
-        } else {
-            heart.src = URL + 'icons/heart-red.gif';
-            // $.ajax({
-            //     method: "POST",
-            //     url: "actions.php",
-            //     data: { favorite: 'true' }
-            // })
+    favorite.addEventListener('click', function(e) {
+        e.preventDefault();
+        if(is_log) {
+            let currentUrl = window.location.href;
+            let split_url = currentUrl.split('/');
+            let product_id = split_url[split_url.length - 1];
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            if(heart.src == URL + 'icons/heart-red.gif') {
+                heart.src = URL + 'icons/heart-black.svg';
+                $.ajax({      
+                    type: "POST",
+                    url: "/deletefavorite",
+                    data: {product_id},
+                    dataType: "json",
+                })
+            } else {
+                heart.src = URL + 'icons/heart-red.gif';
+                $.ajax({      
+                    type: "POST",
+                    url: "/setfavorite",
+                    data: {product_id},
+                    dataType: "json",
+                })
+            }
+        } else {      
+            swal({
+                title: "ابتدا وارد سایت شوید",
+                icon: "info",
+                button: "باشه",
+            });
+            
+            let sweetAlert = document.getElementsByClassName('swal-button');
+            sweetAlert[0].addEventListener('mouseenter', function(e) {
+                sweetAlert[0].style.backgroundColor = '#3e549a';
+            });
+            sweetAlert[0].addEventListener('mouseleave', function(e) {
+                sweetAlert[0].style.backgroundColor = '#4962B3';
+            });
         }
-    } else {
-        alert('ابتدا لاگین کنید');
+    });
+
+    let add_comment_a = document.getElementById('add-comment-a');
+    let add_comment_form = document.getElementById('add-comment-form');
+    let none = document.getElementById('none');
+    if(add_comment_a) {
+        add_comment_a.addEventListener('click', function(e) {
+            e.preventDefault();
+            add_comment_form.style.display = "block";
+            none.style.display = "none";
+        });
     }
-});
-
-
-let add_comment_a = document.getElementById('add-comment-a');
-let add_comment_form = document.getElementById('add-comment-form');
-let none = document.getElementById('none');
-add_comment_a.addEventListener('click', function(e) {
-    e.preventDefault();
-    add_comment_form.style.display = "block";
-    none.style.display = "none";
-});
 }

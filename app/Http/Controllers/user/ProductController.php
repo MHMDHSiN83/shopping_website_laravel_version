@@ -4,10 +4,12 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\user\Favorite;
 
 use App\Models\user\Product;
 use App\Models\admin\Comment;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -18,6 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        
         $products = Product::all();
         foreach ($products as $product) {
             $product->set_image_path();
@@ -54,9 +57,18 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if(Auth::check()) {
+            $favorites = Favorite::where('user_id', Auth::user()->id)->where('product_id', $product->id);
+            if($favorites->count() == 0 ) {
+                $favorites = null;
+            }
+        } else{
+            $favorites = null;
+        }
+
         $comments = Comment::orderBy('id', 'DESC')->where('status', 1)->paginate(20);
         $number_of_comments = $comments->count();
-        return view('user.product', compact('product', 'comments', 'number_of_comments'));
+        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites'));
     }
 
     /**
