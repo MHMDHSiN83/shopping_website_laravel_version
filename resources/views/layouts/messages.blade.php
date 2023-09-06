@@ -1,5 +1,5 @@
 @if ($errors->all())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger text-center">
         <ul style="list-style: none">
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>
@@ -9,7 +9,7 @@
 @endif
 
 @if (session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success text-center">
         {{session('success')}}
     </div>
 @endif

@@ -11,9 +11,12 @@ class Comment extends Model
     protected $fillable = [
         'description'
     ];
-    protected $attributes = [
-        'product_id' => 1,
-        'user_id' => 1,
-        'status' => 0,
-    ];
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

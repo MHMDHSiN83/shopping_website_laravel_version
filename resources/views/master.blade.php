@@ -2,7 +2,7 @@
 <body>
 
 @include('layouts.nav')
-
+@include('layouts.messages')
 @yield('content')
 
 @include('layouts.footer')

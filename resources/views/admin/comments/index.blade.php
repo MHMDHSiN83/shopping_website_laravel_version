@@ -28,8 +28,8 @@
         @endswitch
         <tr>
             <td>{{$comment->id}}</td>
-            <td>{{$comment->user_id}}</td>
-            <td>{{$comment->product_id}}</td>
+            <td>{{$comment->user->name}}</td>
+            <td>{{$comment->product->name}}</td>
             <td>{{cut_text($comment->description, 0, 20)}}</td>
             <td>
                 <div class="center-center">

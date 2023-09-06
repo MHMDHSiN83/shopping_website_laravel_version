@@ -286,7 +286,7 @@
                             <span class="add-comment">برای نظر دادن به این  محصول کلیک کنید</span>
                             <a href="" class="add-comment" id="add-comment-a">ثبت نظر</a>
                         </div>
-                        <form method="POST" id="add-comment-form" action="{{route('user.comments.store')}}">
+                        <form method="POST" id="add-comment-form" action="{{route('user.comments.store', $product->id)}}">
                             @csrf
                             <textarea name="description"></textarea>
                             <br>
@@ -308,7 +308,7 @@
                                     <span class="username">{{$comment->user->name}}</span>
                                 </div>
                                 <div class="left">
-                                    <span class="date">ارسال شده در 1399/12/23</span>
+                                    <span class="date">ارسال شده در {{jdate($comment->created_at)}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -323,13 +323,13 @@
                                     </a>
                                 </div>
                                 <div class="left">
-                                    <a href="" class="right-link">
+                                    <a href="{{route('user.comments.dislike', $comment->id)}}" class="right-link">
                                         <img src="{{ asset('icons/dis-like.gif') }}" alt="" class="dis-like">
-                                        <span>۶</span>
+                                        <span>{{$comment->dislike}}</span>
                                     </a>
-                                    <a href="" class="left-link">
+                                    <a href="{{route('user.comments.like', $comment->id)}}" class="left-link">
                                         <img src="{{ asset('icons/like.gif') }}" alt="" class="like">
-                                        <span>۱۴</span>
+                                        <span>{{$comment->like}}</span>
                                     </a>
                                 </div>
                             </div>

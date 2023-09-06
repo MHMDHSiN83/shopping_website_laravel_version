@@ -4,9 +4,10 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\user\Comment;
+use App\Models\user\Product;
 use Exception;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -36,7 +37,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
         $messages = [
             'description.required' => 'متن نظر نمیتواند خالی باشد',
@@ -46,15 +47,19 @@ class CommentController extends Controller
         ], $messages);
         $comment = new Comment();
         try {
-            $comment->create($request->all());
+            $comment->description = $request->description;
+            $comment->user_id = Auth::user()->id;
+            $comment->product_id = $product->id;
+            $comment->save();
         } catch (Exception $exception) {
             $result = 'مشکلی پیش آمده. بعدا امتحان کنید.';
             // return redirect(route('products.index'))->with('warning', $result);
             return redirect()->back()->with('warning', $result);
         }
-        $result = 'محصول مورد نظر با موفقیت اضافه شد.';
+        $result = 'نظر شما ثبت شد، بعد از تائید مدیر نمایش داده میشود.';
         // return redirect(route('products.index'))->with('success', $result);
         return redirect()->back()->with('success', $result);
+        
     }
 
     /**
@@ -100,5 +105,17 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+    }
+
+    public function like(Comment $comment)
+    {
+        $comment->increment('like');
+        return back();
+    }
+
+    public function dislike(Comment $comment)
+    {
+        $comment->increment('dislike');
+        return back();
     }
 }

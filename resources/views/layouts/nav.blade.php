@@ -43,3 +43,4 @@
         <li class="li-icon"><a href="#"><img src="{{ asset('icons/shopping-cart.gif') }}" alt=""></a></li>
     </ul>
 </nav>
+
