@@ -1,0 +1,12 @@
+
+UI fundamentals:
+
+1.contrast
+2.visual hierarchy
+3.color
+4.alignment
+5.scale
+6.white space
+7.typography
+8.proximity
+
