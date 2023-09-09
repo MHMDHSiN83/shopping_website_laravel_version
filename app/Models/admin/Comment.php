@@ -16,4 +16,23 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+    public function likes()
+    {
+        return $this->hasMany('App\Models\user\Like');
+    }
+    public function likeCondition($user_id)
+    {
+        // $like = Like::where('comment_id', $comment_id)->where('user_id', $user_id)->get()->first();
+        $like = $this->likes()->where('user_id', $user_id)->get()->first();
+        if($like) {
+            if($like->type == 0) {
+                $condition = 'dislike';
+            } else {
+                $condition = 'like';
+            }
+        } else {
+            $condition = 'none';
+        }
+        return $condition;
+    }
 }

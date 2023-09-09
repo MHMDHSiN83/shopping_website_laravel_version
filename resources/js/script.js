@@ -129,6 +129,7 @@ if(hero_section) {
 let favorite = document.getElementById('favorite');
 let heart = document.getElementById('heart');
 let is_log = document.getElementById('is-log');
+
 if(favorite) {
     favorite.addEventListener('click', function(e) {
         e.preventDefault();
@@ -186,4 +187,51 @@ if(favorite) {
             none.style.display = "none";
         });
     }
+}
+
+function like_comment(this_element, position, comment_id)
+{
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    let status = "";
+    let icon = this_element.getElementsByTagName('i')[0];
+    let number = this_element.getElementsByTagName('span')[0];
+    if(icon.classList.contains('fa-solid')) {
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+        number.innerHTML = parseInt(number.innerHTML) - 1;
+        status = "delete";
+    } else {
+        if(position == 'next') {
+            var other_element = this_element.nextElementSibling;
+        } else {
+            var other_element = this_element.previousElementSibling;
+        }
+        let other_icon = other_element.getElementsByTagName('i')[0];
+        let other_number = other_element.getElementsByTagName('span')[0];
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+        if(other_icon.classList.contains('fa-solid')) {
+            other_icon.classList.remove('fa-solid');
+            other_icon.classList.add('fa-regular');
+            other_number.innerHTML = parseInt(other_number.innerHTML) - 1;
+            status = "both";
+        } else {
+            status = "create";
+        }
+        number.innerHTML = parseInt(number.innerHTML) + 1;
+    }
+    $.ajax({      
+        type: "POST",
+        url: "/likeordislikecomment",
+        data: {comment_id, position, status},
+        dataType: "json",
+        error: function(err){
+            console.log(err);
+        }
+    })
+    event.preventDefault();
 }

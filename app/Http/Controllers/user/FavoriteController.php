@@ -91,24 +91,13 @@ class FavoriteController extends Controller
     {
         //
     }
-    public function checkLog()
-    {
-        if (!(Auth::check())) {
-            return redirect('/login');
-        }    
-    }
+
     public function setFavorite(Request $request)
     {
-        if (!(Auth::check())) {
-            ?>
-            <script>alert('test');</script>
-            <?php
-        }else {
-            $favorite = new Favorite;
-            $favorite->user_id = Auth::user()->id;
-            $favorite->product_id = $request->input('product_id');
-            $favorite->save();
-        }
+        $favorite = new Favorite;
+        $favorite->user_id = Auth::user()->id;
+        $favorite->product_id = $request->input('product_id');
+        $favorite->save();
     }
     
     public function deleteFavorite(Request $request)

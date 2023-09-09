@@ -308,7 +308,7 @@
                                     <span class="username">{{$comment->user->name}}</span>
                                 </div>
                                 <div class="left">
-                                    <span class="date">ارسال شده در {{jdate($comment->created_at)}}</span>
+                                    <span class="date">ارسال شده در {{jdate($comment->created_at)->format('%d-%m-%Y')}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -323,12 +323,23 @@
                                     </a>
                                 </div>
                                 <div class="left">
-                                    <a href="{{route('user.comments.dislike', $comment->id)}}" class="right-link">
-                                        <img src="{{ asset('icons/dis-like.gif') }}" alt="" class="dis-like">
+                                    <a href="" class="right-link" id="dislike-click" onclick="like_comment(this, 'next', {{$comment->id}});">
+                                        @if ($comment->likeCondition(Auth::user()->id) == 'dislike')
+                                            <i class="fa-solid fa-thumbs-down fa-flip-horizontal fa-xl" style="color: #f7706b;" id="dislike-icon"></i> 
+                                        @else
+                                            <i class="fa-regular fa-thumbs-down fa-flip-horizontal fa-xl" style="color: #f7706b;" id="dislike-icon"></i> 
+                                            
+                                        @endif
                                         <span>{{$comment->dislike}}</span>
                                     </a>
-                                    <a href="{{route('user.comments.like', $comment->id)}}" class="left-link">
-                                        <img src="{{ asset('icons/like.gif') }}" alt="" class="like">
+                                    <a href="" class="left-link" id="like-click" onclick="like_comment(this, 'previous', {{$comment->id}});">
+                                        @if ($comment->likeCondition(Auth::user()->id) == 'like')
+                                        <i class="fa-solid fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
+                                            
+                                        @else
+                                        <i class="fa-regular fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
+                                            
+                                        @endif
                                         <span>{{$comment->like}}</span>
                                     </a>
                                 </div>

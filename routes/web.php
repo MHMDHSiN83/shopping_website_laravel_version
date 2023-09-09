@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/setfavorite', [App\Http\Controllers\user\FavoriteController::class, 'setFavorite'])->name('setfavorite');
 Route::post('/deletefavorite', [App\Http\Controllers\user\FavoriteController::class, 'deleteFavorite'])->name('deletefavorite');
+// Route::post('/deletelike', [App\Http\Controllers\user\LikeController::class, 'deleteLike'])->name('deletelike');
+// Route::post('/addlike', [App\Http\Controllers\user\LikeController::class, 'addLike'])->name('addlike');
+
+// Route::post('/replacelike', [App\Http\Controllers\user\LikeController::class, 'replaceLike'])->name('replacelike');
+Route::post('/likeordislikecomment', [App\Http\Controllers\user\LikeController::class, 'likeOrDislikeComment'])->name('likeordislikecomment');
 
 Route::get('/', function () {
     return view('index');
@@ -27,8 +32,8 @@ Route::get('/product', function () {
 Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
 Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
 Route::post('comments/{product}', [App\Http\Controllers\user\CommentController::class, 'store'])->name('user.comments.store');
-Route::get('comments/like/{comment}', [App\Http\Controllers\user\CommentController::class, 'like'])->name('user.comments.like');
-Route::get('comments/dislike/{comment}', [App\Http\Controllers\user\CommentController::class, 'dislike'])->name('user.comments.dislike');
+// Route::get('comments/like/{comment}', [App\Http\Controllers\user\CommentController::class, 'like'])->name('user.comments.like');
+// Route::get('comments/dislike/{comment}', [App\Http\Controllers\user\CommentController::class, 'dislike'])->name('user.comments.dislike');
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/', function () {
