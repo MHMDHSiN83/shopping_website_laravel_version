@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('image');
+            $table->text('images');
             $table->integer('warranty');
             $table->integer('weight');
             $table->text('description');
