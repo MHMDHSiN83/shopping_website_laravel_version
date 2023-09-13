@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
+
 function cut_text($text, $start, $end) {
     $showing_description = mb_substr($text, $start, $end, 'utf8');
     if($text != $showing_description) {
@@ -15,6 +18,16 @@ function toPersian($text)
         $persian = array('۰','۱','۲','۳','۴','۵','۶','۷','۸','۹');
         $convertedStr = str_replace($english, $persian, $text);
         return $convertedStr;
+}
+
+function get_user_id_if_exist()
+{
+    if(Auth::check()) {
+        $user_id = Auth::user()->id;
+    } else {
+        $user_id = false;
+    }
+    return $user_id;
 }
 
 ?>

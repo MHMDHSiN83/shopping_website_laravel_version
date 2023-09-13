@@ -22,13 +22,16 @@ class Comment extends Model
     }
     public function likeCondition($user_id)
     {
-        // $like = Like::where('comment_id', $comment_id)->where('user_id', $user_id)->get()->first();
-        $like = $this->likes()->where('user_id', $user_id)->get()->first();
-        if($like) {
-            if($like->type == 0) {
-                $condition = 'dislike';
+        if($user_id) {
+            $like = $this->likes()->where('user_id', $user_id)->get()->first();
+            if($like) {
+                if($like->type == 0) {
+                    $condition = 'dislike';
+                } else {
+                    $condition = 'like';
+                }
             } else {
-                $condition = 'like';
+                $condition = 'none';
             }
         } else {
             $condition = 'none';

@@ -324,21 +324,18 @@
                                 </div>
                                 <div class="left">
                                     <a href="" class="right-link" id="dislike-click" onclick="like_comment(this, 'next', {{$comment->id}});">
-                                        @if ($comment->likeCondition(Auth::user()->id) == 'dislike')
+                                        @if ($comment->likeCondition(get_user_id_if_exist()) == 'dislike')
                                             <i class="fa-solid fa-thumbs-down fa-flip-horizontal fa-xl" style="color: #f7706b;" id="dislike-icon"></i> 
                                         @else
                                             <i class="fa-regular fa-thumbs-down fa-flip-horizontal fa-xl" style="color: #f7706b;" id="dislike-icon"></i> 
-                                            
                                         @endif
                                         <span>{{toPersian($comment->dislike)}}</span>
                                     </a>
                                     <a href="" class="left-link" id="like-click" onclick="like_comment(this, 'previous', {{$comment->id}});">
-                                        @if ($comment->likeCondition(Auth::user()->id) == 'like')
-                                        <i class="fa-solid fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
-                                            
+                                        @if ($comment->likeCondition(get_user_id_if_exist()) == 'like')         
+                                            <i class="fa-solid fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
                                         @else
-                                        <i class="fa-regular fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
-                                            
+                                            <i class="fa-regular fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>              
                                         @endif
                                         <span>{{toPersian($comment->like)}}</span>
                                     </a>
