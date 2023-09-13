@@ -55,14 +55,14 @@
                 </li>
                 <li class="mix">
                     <h6><b>وزن محصول:</b></h6>
-                    <span class="number">{{$product->weight}} گرم</span>
+                    <span class="number">{{toPersian($product->weight)}} گرم</span>
                 </li>
                 <li class="mix">
                     <h6><b>قیمت محصول</b></h6>
-                    <span class="number">{{$product->price}} تومان</span>
+                    <span class="number">{{toPersian($product->price)}} تومان</span>
                 </li>
                 <li class="text">
-                    <p class="warranty">این محصول تا {{$product->warranty}} ماه پس از خرید گارانتی دارد</p>
+                    <p class="warranty">این محصول تا {{toPersian($product->warranty)}} ماه پس از خرید گارانتی دارد</p>
                 </li>
                 <li class="text">
                     <a href="#observ" class="observ">مشاهده جزئیات کامل این مصحول</a>
@@ -100,8 +100,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -128,8 +128,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -156,8 +156,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -184,8 +184,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -212,8 +212,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -240,8 +240,8 @@
                         </div>
                         <div class="product-price">
                             <div class="prices">
-                                <span class="price">20,400,000</span>
-                                <span class="price-offer">14,280,000</span>
+                                <span class="price">۲۰,۴۰۰,۰۰۰</span>
+                                <span class="price-offer">۱۴,۲۸۰,۰۰۰</span>
                             </div>
                             <span class="toman">تومان</span>
                             <img src="{{ asset('icons/money.svg') }}" alt="">
@@ -276,7 +276,7 @@
         <div id="comments" class="product-content-item">
             <div class="comments-box">
                 @if ($number_of_comments != 0)
-                    <span class="number-of-comments">برای  این محصول {{$number_of_comments}} دیدگاه  ثبت شده است</span>
+                    <span class="number-of-comments">برای  این محصول {{toPersian($number_of_comments)}} دیدگاه  ثبت شده است</span>
                 @else
                     <span class="number-of-comments">تا به حال نظری برای این محصول ثبت نشده است</span>
                 @endif
@@ -308,7 +308,7 @@
                                     <span class="username">{{$comment->user->name}}</span>
                                 </div>
                                 <div class="left">
-                                    <span class="date">ارسال شده در {{jdate($comment->created_at)->format('%d-%m-%Y')}}</span>
+                                    <span class="date">ارسال شده در {{\Morilog\Jalali\CalendarUtils::convertNumbers(jdate($comment->created_at)->format('%d-%m-%Y'))}}</span>
                                 </div>
                             </div>
                             <hr>
@@ -330,7 +330,7 @@
                                             <i class="fa-regular fa-thumbs-down fa-flip-horizontal fa-xl" style="color: #f7706b;" id="dislike-icon"></i> 
                                             
                                         @endif
-                                        <span>{{$comment->dislike}}</span>
+                                        <span>{{toPersian($comment->dislike)}}</span>
                                     </a>
                                     <a href="" class="left-link" id="like-click" onclick="like_comment(this, 'previous', {{$comment->id}});">
                                         @if ($comment->likeCondition(Auth::user()->id) == 'like')
@@ -340,7 +340,7 @@
                                         <i class="fa-regular fa-thumbs-down fa-flip-vertical fa-xl" style="color: #37a274;" id="like-icon"></i>
                                             
                                         @endif
-                                        <span>{{$comment->like}}</span>
+                                        <span>{{toPersian($comment->like)}}</span>
                                     </a>
                                 </div>
                             </div>
