@@ -50,7 +50,7 @@ class ProductController extends Controller
             'weight.required' => 'وزن محصول الزامی است',
             'description.required' => 'توضیحات محصول الزامی است',
             'status.required' => 'وضعیت محصول الزامی است',
-            'image.required' => 'تصویر محصول الزامی است',
+            'images.required' => 'تصویر محصول الزامی است',
             'category_id.required' => 'دسته بندی محصول الزامی است',
         ];
         $validatedData = $request->validate([
@@ -59,7 +59,7 @@ class ProductController extends Controller
             'warranty' => 'required',
             'weight' => 'required',
             'description' => 'required',
-            'image' => 'required',
+            'images' => 'required',
             'category_id' => 'required',
         ], $messages);
         $product = new Product();
@@ -114,7 +114,7 @@ class ProductController extends Controller
             'weight.required' => 'وزن محصول الزامی است',
             'description.required' => 'توضیحات محصول الزامی است',
             'status.required' => 'وضعیت محصول الزامی است',
-            'image.required' => 'تصویر محصول الزامی است',
+            'images.required' => 'تصویر محصول الزامی است',
             'category_id.required' => 'دسته بندی محصول الزامی است',
         ];
         $validatedData = $request->validate([
@@ -123,7 +123,7 @@ class ProductController extends Controller
             'warranty' => 'required',
             'weight' => 'required',
             'description' => 'required',
-            'image' => 'required',
+            'images' => 'required',
             'category_id' => 'required',
         ], $messages);
         try {

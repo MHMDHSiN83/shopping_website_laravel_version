@@ -30,4 +30,22 @@ function get_user_id_if_exist()
     return $user_id;
 }
 
+function set_images_path($images) {
+    $images = explode(',', $images);
+    foreach ($images as $first_key => $image) {
+        $image_name = explode('/', $image); 
+        $image_path = "";
+        foreach ($image_name as $second_key => $value) {
+            if($second_key == count($image_name)-1){
+                $image_path = $image_path."thumbs/";
+                $image_path = $image_path.$value;
+            } else{
+                $image_path = $image_path.$value.'/';
+            }
+        }
+        $images[$first_key] = $image_path;
+    }
+    return $images;
+}
+
 ?>

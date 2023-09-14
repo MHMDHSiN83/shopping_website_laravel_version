@@ -366,3 +366,9 @@ a {
 .center-center:nth-child(1) {
     padding: 0 1rem;
 }
+
+#holder img {
+    width: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
