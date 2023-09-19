@@ -28,6 +28,9 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('uesr.product');
 });
+Route::get('/profile', function () {
+    return view('user.profile');
+})->name('profile');
 
 Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
 Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
