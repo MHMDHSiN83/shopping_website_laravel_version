@@ -1,5 +1,7 @@
 const URL = "http://localhost:8000/";
 
+const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
+
 function scrollFunction() {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
           document.getElementsByTagName("nav")[0].style.boxShadow = "0 3px 6px rgba(0, 0, 0, 0.712)";
@@ -189,6 +191,25 @@ if(favorite) {
     }
 }
 
+function toEnglish(str)
+{
+  if(typeof str === 'string')
+  {
+    for(var i=0; i<10; i++)
+    {
+      str = str.replace(persianNumbers[i], i);
+    }
+  }
+  return str;
+}
+
+function toPersian(str) {
+    var arabicNumers= ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    return str.replace(/[0-9]/g, function(w){
+        return arabicNumers[+w];
+    });
+}
+
 function like_comment(this_element, position, comment_id)
 {
     $.ajaxSetup({
@@ -202,7 +223,8 @@ function like_comment(this_element, position, comment_id)
     if(icon.classList.contains('fa-solid')) {
         icon.classList.remove('fa-solid');
         icon.classList.add('fa-regular');
-        number.innerHTML = parseInt(number.innerHTML) - 1;
+        number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) - 1).toString());
+        // number.innerHTML = parseInt(number.innerHTML) - 1;
         status = "delete";
     } else {
         if(position == 'next') {
@@ -217,12 +239,16 @@ function like_comment(this_element, position, comment_id)
         if(other_icon.classList.contains('fa-solid')) {
             other_icon.classList.remove('fa-solid');
             other_icon.classList.add('fa-regular');
-            other_number.innerHTML = parseInt(other_number.innerHTML) - 1;
+            // other_number.innerHTML = parseInt(other_number.innerHTML) - 1;
+            other_number.innerHTML = toPersian((parseInt(toEnglish(other_number.innerHTML)) - 1).toString());
+
             status = "both";
         } else {
             status = "create";
         }
-        number.innerHTML = parseInt(number.innerHTML) + 1;
+        // number.innerHTML = parseInt(number.innerHTML) + 1;
+        number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) + 1).toString());
+
     }
     $.ajax({      
         type: "POST",
