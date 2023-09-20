@@ -1104,3 +1104,6 @@ font-size: 17px;
 .btn-color-green:hover {
     background-color: #2B7E5A;
 }
+.carousel * {
+    direction: ltr;
+}
