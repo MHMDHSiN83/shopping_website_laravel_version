@@ -5,9 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\user\Favorite;
-
 use App\Models\user\Product;
-use App\Models\admin\Comment;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,8 +60,7 @@ class ProductController extends Controller
         } else{
             $favorites = null;
         }
-
-        $comments = Comment::orderBy('id', 'DESC')->where('status', 1)->paginate(20);
+        $comments = $product->comments()->where('status', 1)->orderBy('id', 'DESC')->paginate(20);
         $number_of_comments = $comments->count();
         return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites'));
     }

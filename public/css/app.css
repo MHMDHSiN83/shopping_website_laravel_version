@@ -1107,6 +1107,9 @@ font-size: 17px;
 .carousel * {
     direction: ltr;
 }
+.carousel-item {
+    height: 400px;
+}
 /* @font-face {
     font-family: "Shabnam";
     src: url(../Fonts/Shabnam.ttf);

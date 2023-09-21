@@ -63,6 +63,11 @@ class ProductController extends Controller
             'category_id' => 'required',
         ], $messages);
         $product = new Product();
+        if(empty($request->slug)) {
+            $request->merge(['slug' => sluggable($request->name)]);
+        } else {
+            $request->merge(['slug' => sluggable($request->slug)]);
+        }
         try {
             $product->create($request->all());
         } catch (Exception $exception) {
@@ -92,7 +97,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $product->set_image_path();
         $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
     }
@@ -106,7 +110,6 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // dd($request->all());
         $messages = [
             'name.required' => 'نام محصول الزامی است',
             'price.required' => 'قیمت محصول الزامی است',
@@ -126,6 +129,11 @@ class ProductController extends Controller
             'images' => 'required',
             'category_id' => 'required',
         ], $messages);
+        if(empty($request->slug)) {
+            $request->merge(['slug' => sluggable($request->name)]);
+        } else {
+            $request->merge(['slug' => sluggable($request->slug)]);
+        }
         try {
             $product->update($request->all());
         } catch (Exception $exception) {

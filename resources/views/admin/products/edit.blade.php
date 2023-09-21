@@ -8,6 +8,8 @@
         @method('put')
         <input type="text" name="name" placeholder="نام محصول" value="{{ $product->name }}">
         <br>
+        <input type="text" name="slug" placeholder="نام محصول" value="{{ $product->slug }}">
+        <br>
         <input type="text" name="price" placeholder="قیمت محصول" value="{{ $product->price }}">
         <br>
         <span>انتخاب دسته بندی:</span>

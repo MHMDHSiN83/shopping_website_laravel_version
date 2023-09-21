@@ -50,13 +50,13 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     });
     Route::prefix('users')->group(function () {
         Route::get('/', [App\Http\Controllers\admin\UserController::class, 'index'])->name('users.index');
-        Route::get('/changeRole{user}', [App\Http\Controllers\admin\UserController::class, 'changeRole'])->name('users.changeRole');
-        Route::get('/changeStatus{user}', [App\Http\Controllers\admin\UserController::class, 'changeStatus'])->name('users.changeStatus');
+        Route::get('/changeRole/{user}', [App\Http\Controllers\admin\UserController::class, 'changeRole'])->name('users.changeRole');
+        Route::get('/changeStatus/{user}', [App\Http\Controllers\admin\UserController::class, 'changeStatus'])->name('users.changeStatus');
         Route::delete('/{user}', [App\Http\Controllers\admin\UserController::class, 'destroy'])->name('users.destroy');
     });
     Route::resource('products', App\Http\Controllers\admin\ProductController::class);
     Route::prefix('products')->group(function () {
-        Route::get('/changeStatus{product}', [App\Http\Controllers\admin\ProductController::class, 'changeStatus'])->name('products.changeStatus');
+        Route::get('/changeStatus/{product}', [App\Http\Controllers\admin\ProductController::class, 'changeStatus'])->name('products.changeStatus');
     });
     Route::resource('comments', App\Http\Controllers\admin\CommentController::class);
     Route::prefix('comments')->group(function () {

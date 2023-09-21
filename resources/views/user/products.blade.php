@@ -154,7 +154,7 @@ input, select {
     <section class="product">
         @foreach ($products as $product)
             <article class="product-article">
-                <a href="{{route('user.product.show', $product->id)}}">
+                <a href="{{route('user.product.show', $product->slug)}}">
                     <figure>
                         <img src="{{set_images_path($product->images)[0]}}" alt="">
                     </figure>

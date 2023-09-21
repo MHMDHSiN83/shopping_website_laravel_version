@@ -30,7 +30,8 @@ function get_user_id_if_exist()
     return $user_id;
 }
 
-function set_images_path($images) {
+function set_images_path($images) 
+{
     $images = explode(',', $images);
     foreach ($images as $first_key => $image) {
         $image_name = explode('/', $image); 
@@ -46,6 +47,15 @@ function set_images_path($images) {
         $images[$first_key] = $image_path;
     }
     return $images;
+}
+function sluggable($slug) 
+{
+    for ($i=0; $i < strlen($slug); $i++) { 
+        if($slug[$i] == ' ') {
+            $slug[$i] = '-';
+        }
+    }
+    return $slug;
 }
 
 ?>

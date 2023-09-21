@@ -6,6 +6,8 @@
         @csrf
         <input type="text" name="name" placeholder="نام محصول" value="{{ old('name') }}">
         <br>
+        <input type="text" name="slug" placeholder="عنوان محصول" value="{{ old('slug') }}">
+        <br>
         <input type="text" name="price" placeholder="قیمت محصول" value="{{ old('price') }}">
         <br>
         <span>انتخاب دسته بندی:</span>

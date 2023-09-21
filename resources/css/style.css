@@ -1107,3 +1107,6 @@ font-size: 17px;
 .carousel * {
     direction: ltr;
 }
+.carousel-item {
+    height: 400px;
+}
