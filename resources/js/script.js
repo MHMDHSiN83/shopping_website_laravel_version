@@ -1,3 +1,4 @@
+
 const URL = "http://localhost:8000/";
 
 const persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g];
@@ -215,52 +216,104 @@ function toPersian(str) {
 
 function like_comment(this_element, position, comment_id)
 {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    let status = "";
-    let icon = this_element.getElementsByTagName('i')[0];
-    let number = this_element.getElementsByTagName('span')[0];
-    if(icon.classList.contains('fa-solid')) {
-        icon.classList.remove('fa-solid');
-        icon.classList.add('fa-regular');
-        number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) - 1).toString());
-        // number.innerHTML = parseInt(number.innerHTML) - 1;
-        status = "delete";
-    } else {
-        if(position == 'next') {
-            var other_element = this_element.nextElementSibling;
-        } else {
-            var other_element = this_element.previousElementSibling;
-        }
-        let other_icon = other_element.getElementsByTagName('i')[0];
-        let other_number = other_element.getElementsByTagName('span')[0];
-        icon.classList.remove('fa-regular');
-        icon.classList.add('fa-solid');
-        if(other_icon.classList.contains('fa-solid')) {
-            other_icon.classList.remove('fa-solid');
-            other_icon.classList.add('fa-regular');
-            // other_number.innerHTML = parseInt(other_number.innerHTML) - 1;
-            other_number.innerHTML = toPersian((parseInt(toEnglish(other_number.innerHTML)) - 1).toString());
-
-            status = "both";
-        } else {
-            status = "create";
-        }
-        // number.innerHTML = parseInt(number.innerHTML) + 1;
-        number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) + 1).toString());
-
-    }
-    $.ajax({      
-        type: "POST",
-        url: "/likeordislikecomment",
-        data: {comment_id, position, status},
-        dataType: "json",
-        error: function(err){
-            console.log(err);
-        }
-    })
     event.preventDefault();
+    if(is_log) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        let status = "";
+        let icon = this_element.getElementsByTagName('i')[0];
+        let number = this_element.getElementsByTagName('span')[0];
+        if(icon.classList.contains('fa-solid')) {
+            icon.classList.remove('fa-solid');
+            icon.classList.add('fa-regular');
+            number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) - 1).toString());
+            // number.innerHTML = parseInt(number.innerHTML) - 1;
+            status = "delete";
+        } else {
+            if(position == 'next') {
+                var other_element = this_element.nextElementSibling;
+            } else {
+                var other_element = this_element.previousElementSibling;
+            }
+            let other_icon = other_element.getElementsByTagName('i')[0];
+            let other_number = other_element.getElementsByTagName('span')[0];
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid');
+            if(other_icon.classList.contains('fa-solid')) {
+                other_icon.classList.remove('fa-solid');
+                other_icon.classList.add('fa-regular');
+                // other_number.innerHTML = parseInt(other_number.innerHTML) - 1;
+                other_number.innerHTML = toPersian((parseInt(toEnglish(other_number.innerHTML)) - 1).toString());
+
+                status = "both";
+            } else {
+                status = "create";
+            }
+            // number.innerHTML = parseInt(number.innerHTML) + 1;
+            number.innerHTML = toPersian((parseInt(toEnglish(number.innerHTML)) + 1).toString());
+            
+
+        }
+        $.ajax({      
+            type: "POST",
+            url: "/likeordislikecomment",
+            data: {comment_id, position, status},
+            dataType: "json",
+            error: function(err){
+                console.log(err);
+            }
+        })
+    } else {
+        swal({
+            title: "ابتدا وارد سایت شوید",
+            icon: "info",
+            button: "باشه",
+        });
+        
+        let sweetAlert = document.getElementsByClassName('swal-button');
+        sweetAlert[0].addEventListener('mouseenter', function(e) {
+            sweetAlert[0].style.backgroundColor = '#3e549a';
+        });
+        sweetAlert[0].addEventListener('mouseleave', function(e) {
+            sweetAlert[0].style.backgroundColor = '#4962B3';
+        });
+    }
+}
+
+function rating_product(rate, product_id)
+{
+    if(is_log) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        set_rate(rate)
+        $.ajax({      
+            type: "POST",
+            url: "/rateproduct",
+            data: {product_id, rate},
+            dataType: "json",
+            error: function(err){
+                console.log(err);
+            }
+        })
+    } else {
+        swal({
+            title: "ابتدا وارد سایت شوید",
+            icon: "info",
+            button: "باشه",
+        });
+        
+        let sweetAlert = document.getElementsByClassName('swal-button');
+        sweetAlert[0].addEventListener('mouseenter', function(e) {
+            sweetAlert[0].style.backgroundColor = '#3e549a';
+        });
+        sweetAlert[0].addEventListener('mouseleave', function(e) {
+            sweetAlert[0].style.backgroundColor = '#4962B3';
+        });
+    }
 }

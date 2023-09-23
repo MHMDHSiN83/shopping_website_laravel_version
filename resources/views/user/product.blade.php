@@ -107,11 +107,26 @@
                 <hr>
                 <span class="score">شما به این محصول چه امتیازی می‌دهید؟!</span>
                 <figure class="star-o">
-                    <img src="{{ asset('icons/star-o.gif') }}" alt="">
-                    <img src="{{ asset('icons/star-o.gif') }}" alt="">
-                    <img src="{{ asset('icons/star-o.gif') }}" alt="">
-                    <img src="{{ asset('icons/star-o.gif') }}" alt="">
-                    <img src="{{ asset('icons/star-o.gif') }}" alt="">
+                    <i class="5 rating-stars fa-regular fa-star fa-lg" style="color: #efdf03;"
+                        onclick="rating_product(5, {{ $product->id }})"></i>
+                    <i class="4 rating-stars fa-regular fa-star fa-lg" style="color: #efdf03;"
+                        onclick="rating_product(4, {{ $product->id }})"></i>
+                    <i class="3 rating-stars fa-regular fa-star fa-lg" style="color: #efdf03;"
+                        onclick="rating_product(3, {{ $product->id }})"></i>
+                    <i class="2 rating-stars fa-regular fa-star fa-lg" style="color: #efdf03;"
+                        onclick="rating_product(2, {{ $product->id }})"></i>
+                    <i class="1 rating-stars fa-regular fa-star fa-lg" style="color: #efdf03;"
+                        onclick="rating_product(1, {{ $product->id }})"></i>
+                    @if ($rate)
+                        <script>
+                            set_rate({{ $rate->rate }});
+                        </script>
+                    @else
+                        <script>
+                            set_rate(0);
+                        </script>
+                    @endif
+                    <span style="color: #efdf03;">۳.۸</span>
                 </figure>
             </div>
         </div>

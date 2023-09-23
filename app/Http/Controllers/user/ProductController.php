@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\user\Favorite;
 use App\Models\user\Product;
+use App\Models\user\Rate;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,9 +61,14 @@ class ProductController extends Controller
         } else{
             $favorites = null;
         }
+        if(Auth::check()) {
+            $rate = Rate::where('user_id', Auth::user()->id)->where('product_id', $product->id)->get()->first();
+        } else{
+            $rate = null;
+        }
         $comments = $product->comments()->where('status', 1)->orderBy('id', 'DESC')->paginate(20);
         $number_of_comments = $comments->count();
-        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites'));
+        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate'));
     }
 
     /**

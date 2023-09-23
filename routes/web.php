@@ -21,6 +21,7 @@ Route::post('/deletefavorite', [App\Http\Controllers\user\FavoriteController::cl
 
 // Route::post('/replacelike', [App\Http\Controllers\user\LikeController::class, 'replaceLike'])->name('replacelike');
 Route::post('/likeordislikecomment', [App\Http\Controllers\user\LikeController::class, 'likeOrDislikeComment'])->name('likeordislikecomment');
+Route::post('/rateproduct', [App\Http\Controllers\user\RateController::class, 'rateProduct'])->name('rateproduct');
 
 Route::get('/', function () {
     return view('index');

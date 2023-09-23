@@ -592,8 +592,8 @@ body {
     display: block;
     margin-bottom: .3333em;
 }
-.product-introduction-data .product-data .star-o img {
-    width: 1.875em;
+.product-introduction-data .product-data .star-o i {
+    cursor: pointer;
 }
 
 /*****************************************/
