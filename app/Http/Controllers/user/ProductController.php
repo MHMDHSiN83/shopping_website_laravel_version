@@ -68,7 +68,13 @@ class ProductController extends Controller
         }
         $comments = $product->comments()->where('status', 1)->orderBy('id', 'DESC')->paginate(20);
         $number_of_comments = $comments->count();
-        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate'));
+        $sum = 0;
+        foreach ($product->rates as $key => $rate) {
+            $sum += $rate->rate;
+        }
+        $number_of_rates = $product->rates->count();
+        $rates_average = $sum / $number_of_rates;
+        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate', 'rates_average', 'number_of_rates'));
     }
 
     /**

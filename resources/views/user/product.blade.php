@@ -126,7 +126,8 @@
                             set_rate(0);
                         </script>
                     @endif
-                    <span style="color: #efdf03;">۳.۸</span>
+                    <span style="color: #efdf03;">{{toPersian($rates_average)}}</span>
+                    <span class="me-md-1" style="color: #efdf03;">{{toPersian($number_of_rates)}}رای</span>
                 </figure>
             </div>
         </div>
