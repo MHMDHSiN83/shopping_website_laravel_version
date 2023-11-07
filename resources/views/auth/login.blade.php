@@ -75,7 +75,7 @@
 <div class="login-box">
     <form method="post" action="{{route('login')}}">
         @csrf
-        <h1>ورود به رزومه سرا</h1>
+        <div class="h2 title">ورود به رزومه سرا</div>
         {{-- <div class="error"><?php echo $error; ?></div> --}}
         <div class="controls">
             <input type="email" name="email" class="InputText @error('email') is-invalid @enderror" required value="{{old('email')}}">

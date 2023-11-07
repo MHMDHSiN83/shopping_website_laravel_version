@@ -79,7 +79,7 @@
 <div class="login-box">
     <form method="post" action="{{route('register')}}">
         @csrf
-        <h1>ثبت نام در رزومه سرا</h1>
+        <div class="h2 title">ثبت نام در رزومه سرا</div>
         {{-- <div class="error"><?php echo $error; ?></div> --}}
         <div class="controls">
             <input type="text" class="InputText" autocomplete="off" required name="name" value="{{ old('name') }}">

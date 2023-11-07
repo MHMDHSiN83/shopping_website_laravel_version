@@ -17,11 +17,10 @@
     padding: 20px 40px;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-form {
-    position: relative;
-    bottom: 20px;
+.login-box a{
+    text-decoration: none;
 }
+
 .error {
     color: red;
     font: 13px;
@@ -63,11 +62,11 @@ label {
 form span, form a {
     font-size: 15px;
 }
-form h1 {
+form .title {
     text-align: center;
     text-shadow: 2px 2px 8px #362b2b7c;
     color: #000000;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .Registary-btn {
@@ -85,7 +84,9 @@ form h1 {
     border-radius: 50px;
     margin-top: 20px;
 }
-
+.Registary-btn:hover {
+    background-color: #2B7E5A;
+}
 a {
     text-decoration: none;
     margin-right: 10px;
