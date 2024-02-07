@@ -342,7 +342,7 @@
                                 <a href="" class="add-comment" id="add-comment-a">ثبت نظر</a>
                             </div>
                             <form method="POST" id="add-comment-form"
-                                action="{{ route('user.comments.store', $product->id) }}">
+                                action="{{ route('user.comments.store', $product->slug) }}">
                                 @csrf
                                 <textarea name="description"></textarea>
                                 <br>

@@ -73,7 +73,11 @@ class ProductController extends Controller
             $sum += $rate->rate;
         }
         $number_of_rates = $product->rates->count();
-        $rates_average = $sum / $number_of_rates;
+        if($number_of_rates == 0) {
+            $rates_average = 0;
+        } else {
+            $rates_average = $sum / $number_of_rates;
+        }
         return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate', 'rates_average', 'number_of_rates'));
     }
 
