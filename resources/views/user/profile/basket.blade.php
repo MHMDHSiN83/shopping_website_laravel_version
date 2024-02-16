@@ -1,65 +1,12 @@
-@extends('master')
+@extends('user.profile.master')
+
 
 @section('content')
-    <div class="row bg-gray-color w-100 pb-5">
-        <div class="col-md-2 text-center bg-white pt-md-5 ps-0 rounded">
-            <div>
-                <figure class="figure mb-md-2">
-                    <div class="circle-image mb-md-3">
-                        <img src="images/sajad.hada.jpg" class="figure-img rounded-circle w-100 h-100 object-fit-cover">
-                    </div>
-                    <figcaption class="h6"><strong>سجاد هداوندی</strong></figcaption>
-                </figure>
-            </div>
-            <ul class="list-unstyled list-group mt-md-2 profile-list rounded-0 rounded-bottom">
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-user fa-lg" style="color: #6B9AF7;"></i>
-                        <span>اطلاعات کاربری</span>
-                    </a>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-cart-shopping fa-lg" style="color: #6B9AF7;"></i>
-                        <span>سبد خرید</span>
-                    </a>
-                </li>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-heart fa-lg" style="color: #6B9AF7;"></i>
-                        <span>علاقه مندی ها</span>
-                    </a>
-                </li>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-comment-dots fa-lg" style="color: #6B9AF7;"></i>
-                        <span>نظرات من</span>
-                    </a>
-                </li>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-file-invoice fa-lg" style="color: #6B9AF7;"></i>
-                        <span>سفارش های من</span>
-                    </a>
-                </li>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-gear fa-lg" style="color: #6B9AF7;"></i>
-                        <span>تنظیمات</span>
-                    </a>
-                </li>
-                <li class="list-group-item border-0 py-md-2">
-                    <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
-                        <i class="fa-solid fa-right-to-bracket fa-lg" style="color: #6B9AF7;"></i>
-                        <span>خروج</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
         <div class="row col-md-10 justify-content-around">
             <section class="carts col-md-7 p-0 me-md-3">
                 <article class="cart-item my-5">
                     <div class="image">
-                        <img src="images/sample2.jpg" class="w-100 h-100 object-fit-cover rounded-end">
+                        <img src="../images/sample2.jpg" class="w-100 h-100 object-fit-cover rounded-end">
                     </div>
                     <div class="data pb-md-3">
                         <div class="top-section">
@@ -114,7 +61,7 @@
                 <div class="w-50">
                     <svg height="100" class="w-100">
                         <line class="custom-shadow" x1="50%" y1="0" x2="50%" y2="100"
-                            id="hanging-line" />
+                            id="hanging-line"/>
                     </svg>
                 </div>
                 <div class="w-50 lh-0">

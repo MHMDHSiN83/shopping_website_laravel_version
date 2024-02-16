@@ -29,13 +29,13 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('uesr.product');
 });
-Route::get('/profile', function () {
-    return view('user.profile');
-})->name('profile');
 
 Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
 Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
 Route::post('comments/{product}', [App\Http\Controllers\user\CommentController::class, 'store'])->name('user.comments.store');
+Route::get('profile', [App\Http\Controllers\user\ProfileController::class, 'index'])->name('user.profile');
+Route::get('profile/basket', [App\Http\Controllers\user\ProfileController::class, 'basket'])->name('user.profile.basket');
+Route::put('profile/{user}', [App\Http\Controllers\user\ProfileController::class, 'update'])->name('user.profile.update');
 // Route::get('comments/like/{comment}', [App\Http\Controllers\user\CommentController::class, 'like'])->name('user.comments.like');
 // Route::get('comments/dislike/{comment}', [App\Http\Controllers\user\CommentController::class, 'dislike'])->name('user.comments.dislike');
 

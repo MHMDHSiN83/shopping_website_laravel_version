@@ -42,7 +42,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $messages = [
             'name.required' => 'نام محصول الزامی است',
             'price.required' => 'قیمت محصول الزامی است',

@@ -66,6 +66,7 @@ class ProductController extends Controller
         } else{
             $rate = null;
         }
+        $images = explode(',', $product->images);
         $comments = $product->comments()->where('status', 1)->orderBy('id', 'DESC')->paginate(20);
         $number_of_comments = $comments->count();
         $sum = 0;
@@ -78,7 +79,7 @@ class ProductController extends Controller
         } else {
             $rates_average = $sum / $number_of_rates;
         }
-        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate', 'rates_average', 'number_of_rates'));
+        return view('user.product', compact('product', 'comments', 'number_of_comments', 'favorites', 'rate', 'rates_average', 'number_of_rates', 'images'));
     }
 
     /**

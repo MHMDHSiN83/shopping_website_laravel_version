@@ -19,6 +19,13 @@ function toPersian($text)
         $convertedStr = str_replace($english, $persian, $text);
         return $convertedStr;
 }
+function toEnglish($text)
+{
+        $english = array('0','1','2','3','4','5','6','7','8','9');
+        $persian = array('۰','۱','۲','۳','۴','۵','۶','۷','۸','۹');
+        $convertedStr = str_replace($persian, $english, $text);
+        return $convertedStr;
+}
 
 function get_user_id_if_exist()
 {
@@ -56,6 +63,20 @@ function sluggable($slug)
         }
     }
     return $slug;
+}
+function is_phone_number($phone_number)
+{
+    $phone_number = toEnglish($phone_number);
+    if(strlen($phone_number) == 11) {
+        for ($i=0; $i < 11 ; $i++) { 
+            if(ord($phone_number[$i]) > 57 or ord($phone_number[$i]) < 48) {
+                return false;
+            }
+        }
+    } else {
+        return false;
+    }
+    return true;
 }
 
 ?>
