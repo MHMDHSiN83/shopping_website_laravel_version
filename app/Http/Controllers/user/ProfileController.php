@@ -23,7 +23,15 @@ class ProfileController extends Controller
     }
     public function basket()
     {
-        return view('user.profile.basket');
+        $products = Auth::user()->products;
+        $number_of_products = $products->count();
+        $total_price = 0;
+        foreach ($products as $product)
+        {
+            $total_price += $product->price;
+        }
+        $total_price = strval($total_price);
+        return view('user.profile.basket', compact('products', 'number_of_products', 'total_price'));
 
     }
 

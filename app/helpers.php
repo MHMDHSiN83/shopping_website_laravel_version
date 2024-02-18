@@ -79,4 +79,18 @@ function is_phone_number($phone_number)
     return true;
 }
 
+function separate_number($number)
+{
+    $length = strlen($number);
+    $new_string = '';
+    for ($i = 0; $i < $length ; $i++)
+    { 
+        if(($length - $i) % 3 == 0) {
+            $new_string .= ',';
+        }
+        $new_string .= $number[$i];
+    }
+    return $new_string;
+}
+
 ?>

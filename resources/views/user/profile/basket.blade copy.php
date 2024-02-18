@@ -4,17 +4,13 @@
 @section('content')
         <div class="row col-md-10 justify-content-around">
             <section class="carts col-md-7 p-0 me-md-3">
-                @foreach ($products as $product)
-                @php
-                    $images = explode(',', $product->images);
-                @endphp
-                    <article class="cart-item my-5">
+                <article class="cart-item my-5">
                     <div class="image">
-                        <img src="{{$images[0]}}" class="w-100 h-100 object-fit-cover rounded-end">
+                        <img src="../images/sample2.jpg" class="w-100 h-100 object-fit-cover rounded-end">
                     </div>
                     <div class="data pb-md-3">
                         <div class="top-section">
-                            <p>{{$product->name}}</p>
+                            <p>گوشی اپل 2018 دو سیم کارت و عالی</p>
                             <div class="delete-product">
                                 <a href="">
                                     <img src="../icons/rubbish-bin.gif" alt="">
@@ -53,13 +49,12 @@
                                 <img src="../icons/minus.gif" alt="">
                             </div>
                             <div class="price">
-                                <span class="number-of-price">{{toPersian(separate_number($product->price))}}</span>
+                                <span class="number-of-price">12,000,000</span>
                                 <span class="toman">تومان</span>
                             </div>
                         </div>
                     </div>
-                    </article>
-                @endforeach
+                </article>
             </section>
             <div class="col-md-3 d-flex align-items-center flex-column">
                 <div class="w-50">
@@ -77,11 +72,11 @@
                     <div class="container px-md-4 font-size-14">
                         <div class="d-flex justify-content-between my-md-3">
                             <span>تعداد کالاها:</span>
-                            <span>{{toPersian($number_of_products)}}</span>
+                            <span>۳</span>
                         </div>
                         <div class="d-flex justify-content-between my-md-3">
                             <span>قیمت کالاها:</span>
-                            <span>{{toPersian(separate_number($total_price))}} تومان</span>
+                            <span>۱۲۰۰۰۰۰ تومان</span>
                         </div>
                         <div class="d-flex justify-content-between my-md-3">
                             <span>تخفیف کالاها:</span>
@@ -90,7 +85,7 @@
                         <hr class="my-mb-3 border-2 opacity-50">
                         <div class="d-flex justify-content-between my-md-3">
                             <span><strong>قیمت نهایی:</strong></span>
-                            <span><strong>{{toPersian(separate_number($total_price))}} تومان</strong></span>
+                            <span><strong>۱۲۰۰۰۰۰ تومان</strong></span>
                         </div>
                         <div class="font-size-11 text-center">
                             این قیمت بدون احتساب هزینه حمل و نقل است.

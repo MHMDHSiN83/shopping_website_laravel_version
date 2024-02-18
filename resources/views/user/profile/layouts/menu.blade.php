@@ -10,7 +10,7 @@
         </div>
         <ul class="list-unstyled list-group mt-md-2 profile-list rounded-0 rounded-bottom">
             <li class="list-group-item border-0 py-md-2">
-                <a href="" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
+                <a href="{{route('user.profile')}}" class=" d-flex flex-row align-items-center w-100 m-0 text-decoration-none text-black">
                     <i class="fa-solid fa-user fa-lg" style="color: #6B9AF7;"></i>
                     <span>اطلاعات کاربری</span>
                 </a>

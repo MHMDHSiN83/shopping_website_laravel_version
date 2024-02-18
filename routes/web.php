@@ -32,6 +32,7 @@ Route::get('/product', function () {
 
 Route::get('products', [App\Http\Controllers\user\ProductController::class, 'index'])->name('user.products.index');
 Route::get('product/{product}', [App\Http\Controllers\user\ProductController::class, 'show'])->name('user.product.show');
+Route::post('addtobasket/{product}', [App\Http\Controllers\user\ProductController::class, 'addToBasket'])->name('addtobasket');
 Route::post('comments/{product}', [App\Http\Controllers\user\CommentController::class, 'store'])->name('user.comments.store');
 Route::get('profile', [App\Http\Controllers\user\ProfileController::class, 'index'])->name('user.profile');
 Route::get('profile/basket', [App\Http\Controllers\user\ProfileController::class, 'basket'])->name('user.profile.basket');

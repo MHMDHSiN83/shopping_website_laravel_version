@@ -67,6 +67,11 @@ class ProductController extends Controller
         } else {
             $request->merge(['slug' => sluggable($request->slug)]);
         }
+        $request->merge([
+            'price' => toEnglish($request->price),
+            'warranty' => toEnglish($request->warranty),
+            'weight' => toEnglish($request->weight),
+        ]);
         try {
             $product->create($request->all());
         } catch (Exception $exception) {
@@ -133,6 +138,11 @@ class ProductController extends Controller
         } else {
             $request->merge(['slug' => sluggable($request->slug)]);
         }
+        $request->merge([
+            'price' => toEnglish($request->price),
+            'warranty' => toEnglish($request->warranty),
+            'weight' => toEnglish($request->weight),
+        ]);
         try {
             $product->update($request->all());
         } catch (Exception $exception) {

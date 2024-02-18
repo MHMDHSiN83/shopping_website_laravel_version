@@ -115,4 +115,8 @@ class ProductController extends Controller
     {
         //
     }
+    public function addToBasket(Product $product)
+    {
+        $product->users()->attach(Auth::user()->id);
+    }
 }

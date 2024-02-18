@@ -1077,6 +1077,8 @@ font-size: 17px;
 }
 
 .add {
+    cursor: pointer;
+    text-decoration: none;
     width: 78%;
     margin: 2em auto;
     height: 4em;

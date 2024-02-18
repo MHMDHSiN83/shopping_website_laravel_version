@@ -84,7 +84,7 @@
                     </li>
                     <li class="mix">
                         <h6><b>قیمت محصول</b></h6>
-                        <span class="number">{{ toPersian($product->price) }} تومان</span>
+                        <span class="number">{{ toPersian(separate_number($product->price)) }} تومان</span>
                     </li>
                     <li class="text">
                         <p class="warranty">این محصول تا {{ toPersian($product->warranty) }} ماه پس از خرید گارانتی دارد
@@ -121,10 +121,13 @@
                 </figure>
             </div>
         </div>
-        <button class="add">
-            <div class="add-content"><span>افزودن به سبد خرید</span><img src="{{ asset('icons/plus.gif') }}"
-                    alt=""></div>
-        </button>
+        <form action="{{route('addtobasket', $product)}}" method="post">
+            <button class="add" type="submit">
+                @csrf
+                <div class="add-content"><span>افزودن به سبد خرید</span><img src="{{ asset('icons/plus.gif') }}"
+                        alt=""></div>
+            </button>
+        </form>
     </div>
     <section class="product-slider">
         <div class="visibility-product">

@@ -2,6 +2,7 @@
 
 namespace App\Models\user;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +21,9 @@ class Product extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
